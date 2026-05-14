@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+/app
+/core
+# Environment (keep *.example tracked)
+.env
+.env.local
+.env.*.local
+.claude
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+*.swp
+*.swo
+
+# TypeScript / tooling
+*.tsbuildinfo
+coverage/
+
+# Secrets / certs
+*.pem
+
+# Optional local tooling (uncomment if desired)
+# .vscode/
+# .cursor/

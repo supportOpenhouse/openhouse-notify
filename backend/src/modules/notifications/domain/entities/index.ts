@@ -1,0 +1,2 @@
+// Notification aggregate root
+export {};

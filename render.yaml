@@ -1,0 +1,9 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# For an existing Web Service, set the same root/build/start in the dashboard.
+services:
+  - type: web
+    name: notification-platform-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: npm start

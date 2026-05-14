@@ -1,0 +1,2 @@
+// PrismaCampaignRepository: implements ICampaignRepository
+export {};

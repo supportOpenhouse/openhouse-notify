@@ -1,0 +1,2 @@
+// INotificationRepository interface
+export {};

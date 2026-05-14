@@ -1,0 +1,88 @@
+{
+  "name": "notification-platform-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Enterprise-grade SaaS notification management platform backend",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "prisma generate && tsc --project tsconfig.json && tsc-alias",
+    "start": "node dist/main.js",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "type-check": "tsc --noEmit",
+    "db:generate": "prisma generate",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:migrate:prod": "prisma migrate deploy",
+    "db:studio": "prisma studio",
+    "db:reset": "prisma migrate reset",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:clean-campaigns": "tsx scripts/clean-old-campaigns.ts",
+    "db:create-user": "tsx scripts/create-user.ts",
+    "fcm:test": "tsx scripts/send-test-fcm.ts",
+    "worker:dev": "nodemon --exec \"tsx src/workers/index.ts\" --watch src/workers --ext ts",
+    "queue:dev": "nodemon --exec \"tsx src/queue/index.ts\" --watch src/queue --ext ts",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@auth/core": "^0.34.3",
+    "@neondatabase/serverless": "^0.10.4",
+    "@prisma/adapter-neon": "^5.22.0",
+    "@prisma/client": "^5.22.0",
+    "@types/multer": "^2.1.0",
+    "bcryptjs": "^3.0.3",
+    "bullmq": "^5.26.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "firebase-admin": "^13.9.0",
+    "helmet": "^8.0.0",
+    "ioredis": "^5.4.1",
+    "morgan": "^1.10.0",
+    "multer": "^2.1.1",
+    "socket.io": "^4.8.1",
+    "uuid": "^11.0.3",
+    "winston": "^3.16.0",
+    "ws": "^8.18.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/compression": "^1.7.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.9.1",
+    "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.5.13",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.4.1",
+    "prisma": "^5.22.0",
+    "tsc-alias": "^1.8.10",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}

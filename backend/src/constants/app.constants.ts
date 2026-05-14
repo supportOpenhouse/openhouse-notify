@@ -1,0 +1,8 @@
+export const APP_CONSTANTS = {
+  DEFAULT_PAGE_SIZE: 20,
+  MAX_PAGE_SIZE: 100,
+  MIN_PAGE_SIZE: 1,
+  DEFAULT_SORT_ORDER: 'desc' as const,
+  MAX_RETRY_ATTEMPTS: 3,
+  RETRY_BASE_DELAY_MS: 1000,
+} as const;

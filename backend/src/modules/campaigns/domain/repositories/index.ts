@@ -1,0 +1,2 @@
+// ICampaignRepository interface definition
+export {};
