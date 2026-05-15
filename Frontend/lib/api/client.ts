@@ -1,9 +1,12 @@
 /**
  * Typed API client for the Express backend.
  *
- * All requests are sent with `credentials: 'include'` so the browser
- * automatically forwards the NextAuth session cookie. The backend's
- * requireSession middleware then validates it against the shared NeonDB.
+ * Requests use `credentials: 'include'` so the browser sends the NextAuth
+ * session cookie. That cookie is scoped to **this** origin only — it is not
+ * sent on cross-origin fetches to a separate API host. Deployments that split
+ * the panel (e.g. Vercel) and API (e.g. Render) should set `NEXT_PUBLIC_API_URL`
+ * to a same-origin path like `/api/v1` and configure `BACKEND_PROXY_ORIGIN`
+ * in `next.config.mjs` rewrites so `/api/v1/*` is forwarded to Express.
  */
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000/api/v1';
