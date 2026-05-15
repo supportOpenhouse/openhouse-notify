@@ -28,7 +28,7 @@
     "fcm:test": "tsx scripts/send-test-fcm.ts",
     "worker:dev": "nodemon --exec \"tsx src/workers/index.ts\" --watch src/workers --ext ts",
     "queue:dev": "nodemon --exec \"tsx src/queue/index.ts\" --watch src/queue --ext ts",
-    "prepare": "husky"
+    "prepare": "node -e \"try{require.resolve('husky')}catch{process.exit(0)}\" && husky"
   },
   "dependencies": {
     "@auth/core": "^0.34.3",
